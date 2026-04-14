@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://ui/clock_hud.gd" id="1"]
+
+[node name="ClockHud" type="Control"]
+script = ExtResource("1")
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ClockLabel" type="Label" parent="."]
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 180.0
+offset_bottom = 44.0
+theme_override_font_sizes/font_size = 22
+text = "12:00 PM"

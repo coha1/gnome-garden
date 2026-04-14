@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3]
+
+[sub_resource type="BoxMesh" id="body_mesh"]
+size = Vector3(1.8, 1.4, 1.6)
+
+[sub_resource type="StandardMaterial3D" id="body_mat"]
+albedo_color = Color(0.75, 0.62, 0.44, 1)
+
+[sub_resource type="PrismMesh" id="roof_mesh"]
+size = Vector3(2.2, 1.0, 1.8)
+
+[sub_resource type="StandardMaterial3D" id="roof_mat"]
+albedo_color = Color(0.62, 0.18, 0.15, 1)
+
+[sub_resource type="BoxMesh" id="door_mesh"]
+size = Vector3(0.5, 1.1, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="door_mat"]
+albedo_color = Color(0.32, 0.20, 0.10, 1)
+
+[node name="GnomeHouse" type="Node3D"]
+
+[node name="Body" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+mesh = SubResource("body_mesh")
+surface_material_override/0 = SubResource("body_mat")
+
+[node name="Roof" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9, 0)
+mesh = SubResource("roof_mesh")
+surface_material_override/0 = SubResource("roof_mat")
+
+[node name="Door" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0.85)
+mesh = SubResource("door_mesh")
+surface_material_override/0 = SubResource("door_mat")

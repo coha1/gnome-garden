@@ -1,0 +1,243 @@
+[gd_scene format=3 uid="uid://bjmuwarlp8uk3"]
+
+[ext_resource type="Script" uid="uid://cq8xugqnfo6c3" path="res://world/world.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://cacr26dwxt0pe" path="res://entities/player/player.tscn" id="2"]
+[ext_resource type="PackedScene" path="res://entities/plant/plant.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://entities/bug/wild_bug.tscn" id="4"]
+[ext_resource type="PackedScene" path="res://entities/gnome_house/gnome_house.tscn" id="5"]
+[ext_resource type="PackedScene" path="res://ui/clock_hud.tscn" id="6"]
+
+[sub_resource type="Environment" id="env_res"]
+background_mode = 1
+background_color = Color(0.38, 0.62, 1, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.38, 0.62, 1, 1)
+ambient_light_energy = 0.55
+
+[sub_resource type="BoxMesh" id="ground_mesh"]
+size = Vector3(30, 1, 30)
+
+[sub_resource type="StandardMaterial3D" id="ground_mat"]
+albedo_color = Color(0.22, 0.42, 0.14, 1)
+
+[sub_resource type="BoxShape3D" id="ground_shape"]
+size = Vector3(30, 1, 30)
+
+[sub_resource type="CylinderMesh" id="shroom_stem_mesh"]
+top_radius = 0.06
+bottom_radius = 0.08
+height = 0.55
+
+[sub_resource type="StandardMaterial3D" id="shroom_stem_mat"]
+albedo_color = Color(0.85, 0.8, 0.68, 1)
+
+[sub_resource type="SphereMesh" id="shroom_cap_mesh"]
+radius = 0.22
+height = 0.28
+
+[sub_resource type="StandardMaterial3D" id="shroom_cap_mat"]
+albedo_color = Color(0.82, 0.22, 0.12, 1)
+
+[sub_resource type="BoxMesh" id="grass_mesh"]
+size = Vector3(0.025, 0.32, 0.02)
+
+[sub_resource type="StandardMaterial3D" id="grass_mat"]
+albedo_color = Color(0.18, 0.6, 0.12, 1)
+
+[sub_resource type="CylinderMesh" id="flower_stem_mesh"]
+top_radius = 0.01
+bottom_radius = 0.012
+height = 0.22
+
+[sub_resource type="StandardMaterial3D" id="flower_stem_mat"]
+albedo_color = Color(0.25, 0.55, 0.18, 1)
+
+[sub_resource type="SphereMesh" id="flower_head_mesh"]
+radius = 0.055
+height = 0.11
+
+[sub_resource type="StandardMaterial3D" id="flower_yellow_mat"]
+albedo_color = Color(0.95, 0.85, 0.12, 1)
+
+[sub_resource type="StandardMaterial3D" id="flower_pink_mat"]
+albedo_color = Color(0.95, 0.45, 0.65, 1)
+
+[sub_resource type="SphereMesh" id="pebble_mesh"]
+radius = 0.055
+height = 0.04
+
+[sub_resource type="StandardMaterial3D" id="pebble_mat"]
+albedo_color = Color(0.72, 0.68, 0.6, 1)
+
+[node name="Main" type="Node3D" unique_id=601561812]
+script = ExtResource("1")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=718772332]
+environment = SubResource("env_res")
+
+[node name="SunLight" type="DirectionalLight3D" parent="." unique_id=1729801982]
+transform = Transform3D(1, 0, 0, 0, 0.81890297, 0.573932, 0, -0.573932, 0.81890297, 0, 4, 0)
+light_color = Color(1, 0.96, 0.88, 1)
+light_energy = 1.1
+shadow_enabled = true
+
+[node name="Ground" type="StaticBody3D" parent="." unique_id=2000022331]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5020783, 0)
+
+[node name="GroundMesh" type="MeshInstance3D" parent="Ground" unique_id=625917334]
+mesh = SubResource("ground_mesh")
+surface_material_override/0 = SubResource("ground_mat")
+
+[node name="GroundCollision" type="CollisionShape3D" parent="Ground" unique_id=89427653]
+shape = SubResource("ground_shape")
+
+[node name="Gnome" parent="." unique_id=184491923 instance=ExtResource("2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8791794, 0.7289081, -2.0423136)
+
+[node name="PlantA" parent="." unique_id=1035293015 instance=ExtResource("3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.795657, -2.3841858e-07, 4.900002)
+
+[node name="PlantB" parent="." unique_id=1595515262 instance=ExtResource("3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4456569, -2.3841858e-07, 3.8500018)
+
+[node name="PlantC" parent="." unique_id=1953113574 instance=ExtResource("3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3956568, -2.3841858e-07, 3.400002)
+
+[node name="WildBug" parent="." unique_id=4722081 instance=ExtResource("4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.045, 0.9)
+
+[node name="GnomeHouse" parent="." unique_id=716474391 instance=ExtResource("5")]
+transform = Transform3D(1.9061278, 0, -0.6055383, 0, 2, 0, 0.6055383, 0, 1.9061278, 1.9346391, 0, -4.391189)
+
+[node name="MushroomA" type="Node3D" parent="." unique_id=1794096181]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 5.212994, 0, -4.753684)
+
+[node name="Stem" type="MeshInstance3D" parent="MushroomA" unique_id=2108722113]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.275, 0)
+mesh = SubResource("shroom_stem_mesh")
+surface_material_override/0 = SubResource("shroom_stem_mat")
+
+[node name="Cap" type="MeshInstance3D" parent="MushroomA" unique_id=334631582]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.62, 0)
+mesh = SubResource("shroom_cap_mesh")
+surface_material_override/0 = SubResource("shroom_cap_mat")
+
+[node name="MushroomB" type="Node3D" parent="." unique_id=912143413]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -5.005307, 0, -1.6331351)
+
+[node name="Stem" type="MeshInstance3D" parent="MushroomB" unique_id=987356386]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.275, 0)
+mesh = SubResource("shroom_stem_mesh")
+surface_material_override/0 = SubResource("shroom_stem_mat")
+
+[node name="Cap" type="MeshInstance3D" parent="MushroomB" unique_id=1360650264]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.62, 0)
+mesh = SubResource("shroom_cap_mesh")
+surface_material_override/0 = SubResource("shroom_cap_mat")
+
+[node name="Grass" type="Node3D" parent="." unique_id=1159940339]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+
+[node name="Grass1" type="MeshInstance3D" parent="Grass" unique_id=1560658879]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.16, 0.15)
+mesh = SubResource("grass_mesh")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("grass_mat")
+
+[node name="Grass2" type="MeshInstance3D" parent="Grass" unique_id=1448549533]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0.16, 0.55)
+mesh = SubResource("grass_mesh")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("grass_mat")
+
+[node name="Grass3" type="MeshInstance3D" parent="Grass" unique_id=1150970280]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55, 0.16, -0.3)
+mesh = SubResource("grass_mesh")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("grass_mat")
+
+[node name="Grass4" type="MeshInstance3D" parent="Grass" unique_id=745735611]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1, 0.16, 0.7)
+mesh = SubResource("grass_mesh")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("grass_mat")
+
+[node name="Grass5" type="MeshInstance3D" parent="Grass" unique_id=1623828078]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, 0.16, -0.1)
+mesh = SubResource("grass_mesh")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("grass_mat")
+
+[node name="FlowerA" type="Node3D" parent="." unique_id=320333917]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -5.7348924, 0, 4.9545403)
+
+[node name="Stem" type="MeshInstance3D" parent="FlowerA" unique_id=1944246548]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.11, 0)
+mesh = SubResource("flower_stem_mesh")
+surface_material_override/0 = SubResource("flower_stem_mat")
+
+[node name="Head" type="MeshInstance3D" parent="FlowerA" unique_id=860953795]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.245, 0)
+mesh = SubResource("flower_head_mesh")
+surface_material_override/0 = SubResource("flower_yellow_mat")
+
+[node name="FlowerB" type="Node3D" parent="." unique_id=1687333]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 5.5338693, 0, 1.3024266)
+
+[node name="Stem" type="MeshInstance3D" parent="FlowerB" unique_id=84956285]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.11, 0)
+mesh = SubResource("flower_stem_mesh")
+surface_material_override/0 = SubResource("flower_stem_mat")
+
+[node name="Head" type="MeshInstance3D" parent="FlowerB" unique_id=697303829]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.245, 0)
+mesh = SubResource("flower_head_mesh")
+surface_material_override/0 = SubResource("flower_pink_mat")
+
+[node name="FlowerC" type="Node3D" parent="." unique_id=1757796352]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 4.049791, 0, 4.1155186)
+
+[node name="Stem" type="MeshInstance3D" parent="FlowerC" unique_id=2097477995]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.11, 0)
+mesh = SubResource("flower_stem_mesh")
+surface_material_override/0 = SubResource("flower_stem_mat")
+
+[node name="Head" type="MeshInstance3D" parent="FlowerC" unique_id=1787926982]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.245, 0)
+mesh = SubResource("flower_head_mesh")
+surface_material_override/0 = SubResource("flower_yellow_mat")
+
+[node name="Pebbles" type="Node3D" parent="." unique_id=1499936155]
+transform = Transform3D(3.6171863, 0, -3.4519508, 0, 5, 0, 3.4519508, 0, 3.6171863, 3.1195798, 0, 9.048103)
+
+[node name="Pebble1" type="MeshInstance3D" parent="Pebbles" unique_id=1770490283]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -1.55, 0.01, -0.6)
+mesh = SubResource("pebble_mesh")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("pebble_mat")
+
+[node name="Pebble2" type="MeshInstance3D" parent="Pebbles" unique_id=319147653]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -1.65, 0.01, -0.85)
+mesh = SubResource("pebble_mesh")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("pebble_mat")
+
+[node name="Pebble3" type="MeshInstance3D" parent="Pebbles" unique_id=1042685734]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -1.72, 0.01, -1.1)
+mesh = SubResource("pebble_mesh")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("pebble_mat")
+
+[node name="Pebble4" type="MeshInstance3D" parent="Pebbles" unique_id=235682463]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -1.78, 0.01, -1.32)
+mesh = SubResource("pebble_mesh")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("pebble_mat")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=765573712]
+
+[node name="ClockHud" parent="CanvasLayer" unique_id=1593356462 instance=ExtResource("6")]
+layout_mode = 3
+anchors_preset = 15
+grow_horizontal = 2
+grow_vertical = 2

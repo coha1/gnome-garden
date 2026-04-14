@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://entities/bug/wild_bug.gd" id="1"]
+[ext_resource type="PackedScene" path="res://entities/interaction_prompt.tscn" id="2"]
+
+[sub_resource type="SphereMesh" id="bug_mesh"]
+radius = 0.18
+height = 0.36
+
+[sub_resource type="StandardMaterial3D" id="bug_mat"]
+albedo_color = Color(0.7, 0.4, 0.1, 1)
+
+[sub_resource type="SphereShape3D" id="bug_shape"]
+radius = 0.18
+
+[sub_resource type="SphereShape3D" id="zone_shape"]
+radius = 1.2
+
+[node name="WildBug" type="CharacterBody3D"]
+script = ExtResource("1")
+
+[node name="BugMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18, 0)
+mesh = SubResource("bug_mesh")
+surface_material_override/0 = SubResource("bug_mat")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18, 0)
+shape = SubResource("bug_shape")
+
+[node name="HeartLabel" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+text = "♥"
+font_size = 64
+billboard = 1
+no_depth_test = true
+modulate = Color(1, 0.3, 0.5, 1)
+
+[node name="InteractionPrompt" parent="." instance=ExtResource("2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+
+[node name="InteractZone" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18, 0)
+
+[node name="ZoneShape" type="CollisionShape3D" parent="InteractZone"]
+shape = SubResource("zone_shape")
