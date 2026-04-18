@@ -21,6 +21,8 @@ config/features=PackedStringArray("4.6", "Forward Plus")
 [autoload]
 
 DayNightCycle="*res://core/day_night_cycle.gd"
+Inventory="*res://core/inventory.gd"
+Notifications="*res://core/notifications.gd"
 
 [display]
 

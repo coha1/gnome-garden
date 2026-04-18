@@ -1,0 +1,7 @@
+res://entities/bug/wild_bug.tscn::e85755470b3be250db3624b742075f56::1776196418::res://.godot/exported/133200997/export-de5561e8aaef1c118185cc95038b3369-wild_bug.scn
+res://entities/gnome_house/gnome_house.tscn::19cf2412ce4b9b2dfb1f83e646813896::1776194903::res://.godot/exported/133200997/export-368d0d44aad3854372347b56208daf43-gnome_house.scn
+res://entities/plant/plant.tscn::3d9d263fe88daaed8bc5b1f5a1a7b558::1776196415::res://.godot/exported/133200997/export-f660efcb2ea39459b99c89bfe5e3a431-plant.scn
+res://entities/player/player.tscn::b099bc183601dae4a1d039524316775d::1776211248::res://.godot/exported/133200997/export-21b780c0d4e68e8c35280599c3e67de2-player.scn
+res://entities/interaction_prompt.tscn::a755c26fd5971bf59e486fabc8d74c3a::1776196395::res://.godot/exported/133200997/export-d9600c80bc87c0006d3da27b40d640e4-interaction_prompt.scn
+res://ui/clock_hud.tscn::15360d4ca905b4f0eee4bf3552b9b649::1776458204::res://.godot/exported/133200997/export-43557eae911e40ab3fd98a68ae7ba3cc-clock_hud.scn
+res://world/main.tscn::f70fce157ad8004d782ac22b1e440fa4::1776195398::res://.godot/exported/133200997/export-f75c1b407ca95d3a3d4746aec629f972-main.scn

@@ -98,6 +98,7 @@ func _harvest() -> void:
 	grow_elapsed = 0.0
 	visual_root.scale = Vector3.ONE
 	_on_state_changed()
+	Inventory.add_veggie()
 	print(get_path(), ": harvested — ready to water again")
 
 
