@@ -17,6 +17,7 @@ var _highlighted: Node3D = null
 
 
 func _ready() -> void:
+	add_to_group("player")
 	spring_arm.rotation = Vector3(deg_to_rad(camera_pitch_degrees), 0.0, 0.0)
 	print(get_path(), ": Player ready")
 

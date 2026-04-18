@@ -2,9 +2,9 @@ class_name ClockHud
 extends Control
 
 
-@export var clock_label: Label
-@export var veggie_label: Label
-@export var notification_label: Label
+@onready var clock_label: Label = $ClockLabel
+@onready var veggie_label: Label = $VeggieLabel
+@onready var notification_label: Label = $NotificationLabel
 
 
 var _notification_timer: float = 0.0

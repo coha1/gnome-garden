@@ -39,6 +39,10 @@ var _is_highlighted: bool = false
 
 
 func _ready() -> void:
+	if player == null:
+		var found: Array[Node] = get_tree().get_nodes_in_group("player")
+		if found.size() > 0:
+			player = found[0] as Player
 	heart_label.visible = false
 	interact_zone.add_to_group("interactable")
 	interaction_prompt.set_text("▼\nFeed")
